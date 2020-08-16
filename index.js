@@ -6,6 +6,22 @@ var checkingColor = "#e3a93d";
 var defaultColor = "#6199f2";
 
 
+function disableAllButton(){
+    const button = document.querySelectorAll("button");
+
+    for(var i = 0; i<button.length; i++){
+        button[i].disabled = true;
+    }
+}
+
+function enableAllButton(){
+    const button = document.querySelectorAll("button");
+
+    for(var i = 0; i<button.length; i++){
+        button[i].disabled = false;
+    }
+}
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -140,6 +156,7 @@ async function traverse(){
 }
 
 async function bubbleSort(){
+    disableAllButton();
     var n = newArr.length - 1;
     do{
         swapp = false;
@@ -161,10 +178,11 @@ async function bubbleSort(){
     }while(swapp);
 
     await traverse();
+    enableAllButton();
 }
 
 async function selectionSort() {
-
+    disableAllButton();
     let len = newArr.length;
     for (let i = 0; i < len; i++) {
         let min = i;
@@ -187,39 +205,16 @@ async function selectionSort() {
     }
 
     await traverse();
+    enableAllButton();
 }
 
-
-
-async function quickSort(origArray){
-	if (origArray.length <= 1) { 
-		return origArray;
-	} else {
-
-		var left = [];
-		var right = [];
-        var newArray = [];
-        var last = origArray.length;
-        checkBarSingle(last);
-		var pivot = origArray.pop();
-		var length = origArray.length;
-
-		for (var i = 0; i < length; i++) {
-			if (origArray[i] <= pivot) {
-				left.push(origArray[i]);
-			} else {
-				right.push(origArray[i]);
-			}
-		}
-
-		return newArray.concat(quick_Sort(left), pivot, quick_Sort(right));
-	}
-}
 
 async function quickSort(){
+    disableAllButton();
     await quickSortActual(0, 49);
 
     await traverse();
+    enableAllButton();
 }
 
 
