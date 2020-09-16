@@ -1,15 +1,17 @@
-import RandomNumbers from "./RandomNumbers";
+import RandomNumbers from "./utilities/RandomNumbers";
 
 
 class Board{
     numArray: number[];
     size: number;
     random: RandomNumbers;
+    columnWidth: number
 
     constructor(size:number){
         this.size = size;
         this.random = new RandomNumbers();
         this.numArray = [];
+        this.columnWidth = 100/size;
 
         this.generateArray();
     }
@@ -19,6 +21,7 @@ class Board{
         let container = document.getElementById("main-container");
         let newCol = document.createElement("div");
         newCol.className = 'column';
+        newCol.style.width = this.columnWidth.toString() + '%';
 
         let newBar = document.createElement("div");
         newBar.className = 'bar';
@@ -30,6 +33,7 @@ class Board{
     }
 
     generateArray(){
+        this.numArray = []
         let container = document.getElementById("main-container");
         while(container.hasChildNodes()){
             container.removeChild(container.childNodes[0]);
@@ -37,8 +41,15 @@ class Board{
 
         for(let i=0; i<this.size; i++){
             let newNum = this.random.GenerateRandomNumber(2, 50);
+            this.numArray.push(newNum);
             this.generateNewBar(newNum, i);
         }
+    }
+
+    updateSize(size:number){
+        this.size = size;
+        this.columnWidth = 100/size;
+        this.generateArray();
     }
 }
 

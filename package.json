@@ -1,0 +1,26 @@
+{
+  "name": "sorting-visualizer",
+  "version": "1.0.0",
+  "description": "tool to visualize various types of sorting algorithms",
+  "main": "index.js",
+  "dependencies": {
+    "ts-loader": "^8.0.3",
+    "typescript": "^4.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohitpjpti18/sorting-visualizer.git"
+  },
+  "author": "rohit prajapati",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rohitpjpti18/sorting-visualizer/issues"
+  },
+  "homepage": "https://github.com/rohitpjpti18/sorting-visualizer#readme"
+}

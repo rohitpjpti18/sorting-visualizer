@@ -1,11 +1,7 @@
-body{
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 5%;
-}
 
-.gap{
-    height: 100px;
+
+#main-container{
+    height: 400px;
 }
 
 button{
@@ -23,12 +19,6 @@ button:hover{
     background-color: #5d75df;
 }
 
-#main-container{
-    height: 400px;
-    margin: 0%;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
 
 .bar{
     position: absolute;
@@ -41,6 +31,13 @@ button:hover{
     position: relative;
     align-items: flex-end;
     height: 100%;
-    width: 2%;
     display: inline-block;
+}
+
+
+.modified-container{
+    margin-top: 124px;
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-bottom: 24px;
 }
