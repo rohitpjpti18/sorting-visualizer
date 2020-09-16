@@ -37,7 +37,7 @@ button:hover{
     background-color: #6199f2;
 }
 
-.row{
+.column{
     position: relative;
     align-items: flex-end;
     height: 100%;
