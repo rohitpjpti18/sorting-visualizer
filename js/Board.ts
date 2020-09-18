@@ -15,6 +15,7 @@ import QuickSort from "./algorithms/QuickSort";
 import MergeSort from "./algorithms/MergeSort";
 import SelectionSort from "./algorithms/SelectionSort";
 import HeapSort from "./algorithms/HeapSort";
+import InsertionSort from "./algorithms/InsertionSort";
 
 class Board{
     numArray: number[];
@@ -102,6 +103,12 @@ class Board{
             case 1:
                 let selectionSort = new SelectionSort(this, this.colorHandler);
                 await selectionSort.execute();
+                await this.colorHandler.traverse(this.numArray);
+                break;
+
+            case 2:
+                let insertionSort = new InsertionSort(this, this.colorHandler);
+                await insertionSort.execute();
                 await this.colorHandler.traverse(this.numArray);
                 break;
 
