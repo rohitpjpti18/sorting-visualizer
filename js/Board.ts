@@ -9,10 +9,12 @@ Heap Sort               5
 */
 
 import RandomNumbers from "./utilities/RandomNumbers";
-import BubbleSort from './algorithms/BubbleSort';
 import Color from "./Color";
+import BubbleSort from './algorithms/BubbleSort';
 import QuickSort from "./algorithms/QuickSort";
 import MergeSort from "./algorithms/MergeSort";
+import SelectionSort from "./algorithms/SelectionSort";
+import HeapSort from "./algorithms/HeapSort";
 
 class Board{
     numArray: number[];
@@ -97,10 +99,16 @@ class Board{
                 await this.colorHandler.traverse(this.numArray);
                 break;
 
+            case 1:
+                let selectionSort = new SelectionSort(this, this.colorHandler);
+                await selectionSort.execute();
+                await this.colorHandler.traverse(this.numArray);
+                break;
+
             case 3:
                 let mergesort = new MergeSort(this, this.colorHandler);
                 await mergesort.execute();
-                console.log(this.numArray);
+                //console.log(this.numArray);
                 await this.colorHandler.traverse(this.numArray);
                 break;
 
@@ -109,7 +117,13 @@ class Board{
                 await quicksort.execute();
                 await this.colorHandler.traverse(this.numArray);
                 break;
-                
+
+            case 5:
+                let heapsort = new HeapSort(this, this.colorHandler);
+                await heapsort.execute();
+                await this.colorHandler.traverse(this.numArray);
+                break;
+
             default:
                 alert("No Algorithm Selected. Please select a sorting algorithm")
                 console.log("no algorithm selected");
