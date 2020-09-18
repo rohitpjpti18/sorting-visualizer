@@ -28,7 +28,7 @@ class Board{
         this.random = new RandomNumbers();
         this.numArray = [];
         this.columnWidth = 100/size;
-        this.algoID = 0;
+        this.algoID = -1;
         this.colorHandler = colorhandler;
 
         this.generateArray();
@@ -101,6 +101,7 @@ class Board{
                 await this.colorHandler.traverse(this.numArray);
                 break;
             default:
+                alert("No Algorithm Selected. Please select a sorting algorithm")
                 console.log("no algorithm selected");
         }
     }

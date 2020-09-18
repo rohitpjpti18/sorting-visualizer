@@ -4,40 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorting Visualizer</title>
+    <link rel="icon" href="chart-bar.svg" type = "image/x-icon">
+    <script src="https://kit.fontawesome.com/3a74272c7d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-steel">
+        <i class="fas fa-chart-bar" style="font-size: 30px;color: white"></i> &nbsp;
         <a class="navbar-brand" href="#">Sorting Visualizer</a>
-        <button id="start" type="button" class="btn btn-outline-info">Start Sorting</button>
+        <button id="start" type="button" class="btn btn-warning">Start Sorting</button>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" id="generateArray">Generate Random Array</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Select a Sorting Algorithm
-                </a>
-                <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                    <h6 class="dropdown-header">O(n<sup>2</sup>) time complexity</h6>
-                    <a class="dropdown-item" id='bubble'>Bubble Sort</a>
-                    <a class="dropdown-item" id='selection'>Selection Sort</a>
-                <div class="dropdown-divider"></div>
-                    <h6 class="dropdown-header">O(nlogn) time complexity</h6>
-                    <a class="dropdown-item" id='quick'>Quick Sort</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="generateArray">Generate Random Array</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select a Sorting Algorithm
+                    </a>
+                    <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                        <h6 class="dropdown-header">O(n<sup>2</sup>) time complexity</h6>
+                        <a class="dropdown-item" id='bubble'>Bubble Sort</a>
+                        <a class="dropdown-item" id='selection'>Selection Sort</a>
+                        <div class="dropdown-divider"></div>
+                        <h6 class="dropdown-header">O(nlogn) time complexity</h6>
+                        <a class="dropdown-item" id='quick'>Quick Sort</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
             </ul>
             <span class="navbar-text">
                 Sort Speed: 
