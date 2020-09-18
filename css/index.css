@@ -1,4 +1,10 @@
+body{
+    background-color: #fafafa;
+}
 
+.bg-steel {
+    background-color: #5f788a;
+  }
 
 #main-container{
     height: 400px;
@@ -36,8 +42,9 @@ button:hover{
 
 
 .modified-container{
-    margin-top: 124px;
+    position: relative;
+    margin-top: 5%;
     margin-left: 4%;
     margin-right: 4%;
-    margin-bottom: 24px;
+    margin-bottom: 5%;
 }

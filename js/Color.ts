@@ -1,3 +1,13 @@
+import { updateArrayTypeNode } from "typescript";
+/*
+Color           ColorID
+default         0
+check           1
+ordered         2
+unordered       3
+final           4
+*/
+
 import Board from "./Board";
 
 class Color{
@@ -7,38 +17,63 @@ class Color{
     defaultColor:string;
     orderedColor:string;
     finalColor:string;
+    colorArray:string[];
 
     constructor(speed:number){
         this.speed = speed;
-        this.checkColor = "yellow";
-        this.unorderedColor = "red";
-        this.defaultColor = "blue";
-        this.orderedColor = "green";
-        this.finalColor = "voilet";
+        this.checkColor = "#e8dc7d";
+        this.unorderedColor = "#c45c5c";
+        this.defaultColor = "#6199f2";
+        this.orderedColor = "#66de7e";
+        this.finalColor = "#9983a3";
+        this.colorArray = [
+                            this.defaultColor, 
+                            this.checkColor, 
+                            this.orderedColor,
+                            this.unorderedColor,
+                            this.finalColor    
+                        ]
     }
 
     sleep(){
         return new Promise(resolve => setTimeout(resolve, this.speed));
     }
 
-    async check(index:number){
+    async setColor(index:number, colorId:number){
         var element = document.getElementById(index.toString());
 
-        element.style.backgroundColor = this.checkColor
+        element.style.backgroundColor = this.colorArray[colorId]
+
 
         await this.sleep();
     }
 
-    async setToCheck(index1:number, index2:number){
-        await Promise.all([this.check(index1), this.check(index2)]);
+    async set2IndexToDefault(index1:number, index2:number){
+        await Promise.all([this.setColor(index1, 0), this.setColor(index2, 0)]);
+    }
+
+    async set2IndexToCheck(index1:number, index2:number){
+        await Promise.all([this.setColor(index1, 1), this.setColor(index2, 1)]);
+    }
+
+    async set2IndexToOrdered(index1:number, index2:number){
+        await Promise.all([this.setColor(index1, 2), this.setColor(index2, 2)]);
+    }
+
+    async set2IndexToUnordered(index1:number, index2:number){
+        await Promise.all([this.setColor(index1, 3), this.setColor(index2, 3)]);
+    }
+
+    async set2IndexToFinal(index1:number, index2:number){
+        await Promise.all([this.setColor(index1, 4), this.setColor(index2, 4)]);
     }
 
     updateSpeed(speed:number){
         this.speed = speed;
     }
 
-    async swapTwoElements(index1:number, value1:number, index2:number, value2:number){
-        await this.setToCheck(index1,index2);
+    async arrangeTwoElements(index1:number, value1:number, index2:number, value2:number){
+        await this.set2IndexToUnordered(index1,index2);
         
         var elm1 = document.getElementById(index1.toString());
         var elm2 = document.getElementById(index2.toString());
@@ -46,7 +81,15 @@ class Color{
         elm1.style.height = (value1*10).toString()+'px';
         elm2.style.height = (value2*10).toString()+'px';
 
+        await this.set2IndexToOrdered(index1, index2);
+
         
+    }
+
+    async traverse(array:number[]){
+        for(let i = 0; i<array.length; i++){
+            await this.setColor(i, 4);
+        }
     }
 }
 
