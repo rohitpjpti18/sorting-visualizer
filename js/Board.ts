@@ -12,6 +12,7 @@ import RandomNumbers from "./utilities/RandomNumbers";
 import BubbleSort from './algorithms/BubbleSort';
 import Color from "./Color";
 import QuickSort from "./algorithms/QuickSort";
+import MergeSort from "./algorithms/MergeSort";
 
 class Board{
     numArray: number[];
@@ -95,11 +96,20 @@ class Board{
                 await bubbleSort.execute();
                 await this.colorHandler.traverse(this.numArray);
                 break;
+
+            case 3:
+                let mergesort = new MergeSort(this, this.colorHandler);
+                await mergesort.execute();
+                console.log(this.numArray);
+                await this.colorHandler.traverse(this.numArray);
+                break;
+
             case 4:
                 let quicksort = new QuickSort(this, this.colorHandler);
                 await quicksort.execute();
                 await this.colorHandler.traverse(this.numArray);
                 break;
+                
             default:
                 alert("No Algorithm Selected. Please select a sorting algorithm")
                 console.log("no algorithm selected");

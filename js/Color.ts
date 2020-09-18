@@ -73,17 +73,19 @@ class Color{
     }
 
     async arrangeTwoElements(index1:number, value1:number, index2:number, value2:number){
-        await this.set2IndexToUnordered(index1,index2);
-        
-        var elm1 = document.getElementById(index1.toString());
-        var elm2 = document.getElementById(index2.toString());
+        await Promise.all([
+            this.changeElement(index1, value1),
+            this.changeElement(index2, value2)
+        ]);
+    }
 
-        elm1.style.height = (value1*10).toString()+'px';
-        elm2.style.height = (value2*10).toString()+'px';
+    async changeElement(index:number, value:number){
+        await this.setColor(index,3);
 
-        await this.set2IndexToOrdered(index1, index2);
+        var elm = document.getElementById(index.toString());
+        elm.style.height = (value*10).toString()+'px';
 
-        
+        await this.setColor(index,2);
     }
 
     async traverse(array:number[]){

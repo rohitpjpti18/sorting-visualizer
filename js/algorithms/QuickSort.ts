@@ -1,58 +1,5 @@
-import { textSpanIntersectsWithPosition } from "typescript";
 import Board from "../Board";
-/* async function quickSort(){
-    disableAllButton();
-    await quickSortActual(0, 49);
-
-    await traverse();
-    enableAllButton();
-}
-
-
-async function quickSortActual(start, end) { 
-    if(start >= end) { 
-        return; 
-    } 
-    let index = await partition(start, end);  
-      
-    await Promise.all([quickSortActual(start, index-1), 
-            quickSortActual(index+1, end)]);
-} 
-  
-
-async function partition(start, end) { 
-    let pivotIndex = start; 
-    let pivotValue = newArr[end]; 
-    
-    await checkBarSingle(end);
-    for(let i = start; i < end; i++) {
-        await checkBarSingle(i); 
-        if(newArr[i] > pivotValue) { 
-            //swap(arr, i, pivotIndex); 
-            var temp = newArr[i];
-            newArr[i] = newArr[pivotIndex];
-            newArr[pivotIndex] = temp;
-            await swapBar(i, pivotIndex); 
-            await nowCorrectBar(i, pivotIndex);
-            await nowNormalBar(i, pivotIndex);
-            pivotIndex++;
-        } 
-        await nowNormalBarSingle(i);
-    } 
-      
-    //await swap(arr, pivotIndex, end); 
-    var temp = newArr[end];
-    newArr[end] = newArr[pivotIndex];
-    newArr[pivotIndex] = temp;
-    await swapBar(end, pivotIndex);
-    await nowCorrectBar(end, pivotIndex);
-    await nowNormalBar(end, pivotIndex);
-      
-    return pivotIndex; 
-}  */
-
 import Color from "../Color";
-
 
 class QuickSort{
     board:Board;

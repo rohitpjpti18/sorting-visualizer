@@ -1,4 +1,5 @@
 import { formatDiagnosticsWithColorAndContext } from 'typescript';
+import MergeSort from './algorithms/MergeSort';
 import Board from './Board';
 import Color from './Color';
 
@@ -10,7 +11,10 @@ var start = document.getElementById("start");
 
 var bubble = document.getElementById("bubble");
 var selection = document.getElementById("selection");
+var insertion = document.getElementById("insertion");
+var merge = document.getElementById("merge");
 var quick = document.getElementById("quick");
+var heap = document.getElementById("heap");
 
 var arraySizeInput = document.getElementById("arraySize");
 var sortSpeedInput = document.getElementById("sortSpeed");
@@ -38,36 +42,58 @@ generateArray.onclick = function(){
     board.generateArray();
 }
 
+function updateActive(activeStr:number){
+    var algo = [bubble, selection, insertion, merge, quick, heap];
+
+    for(let i = 0; i<algo.length; i++){
+        algo[i].style.backgroundColor = "initial";
+    }
+
+    algo[activeStr].style.backgroundColor = active;
+}
 
 
 
 bubble.onclick = function(){
     if(board.sortInProgress) return;
-
-    bubble.style.backgroundColor = active;
-    selection.style.backgroundColor = "initial";
-    quick.style.backgroundColor = "initial";
+    
+    updateActive(0);
     board.algoID = 0;
 }
 
 selection.onclick = function(){
     if(board.sortInProgress) return;
-
-    bubble.style.backgroundColor = "initial";
-    selection.style.backgroundColor = active;
-    quick.style.backgroundColor = "initial";
-
+    
+    updateActive(1);
     board.algoID = 1;
 }
 
+insertion.onclick = function(){
+    if(board.sortInProgress) return;
+
+    updateActive(2);
+    board.algoID = 2;
+}
+
+merge.onclick = function(){
+    if(board.sortInProgress) return;
+
+    updateActive(3);
+    board.algoID = 3;
+}
+ 
 quick.onclick = function(){
     if(board.sortInProgress) return;
 
-    bubble.style.backgroundColor = "initial";
-    selection.style.backgroundColor = "initial";
-    quick.style.backgroundColor = active;
-
+    updateActive(4);
     board.algoID = 4;
+}
+
+heap.onclick = function(){
+    if(board.sortInProgress) return;
+
+    updateActive(5);
+    board.algoID = 5;
 }
 
 
